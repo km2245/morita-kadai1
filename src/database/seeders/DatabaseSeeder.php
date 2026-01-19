@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\CategoriesTableSeeder;
+use Database\Seeders\ContactsTableSeeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,8 +14,13 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // 先に categories を作らないと
+        // contacts の category_id が入れられない
+        $this->call([
+            CategoriesTableSeeder::class,
+            ContactsTableSeeder::class,
+        ]);
     }
 }
