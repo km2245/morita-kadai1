@@ -16,7 +16,7 @@
         <table border="1">
             <tr>
                 <th>お名前</th>
-                <td>{{ $inputs['last_name'] }} {{ $inputs['first_name'] }}</td>
+                <td>{{ $inputs['last_name']  ?? '' }} {{ $inputs['first_name'] }}</td>
             </tr>
             <tr>
                 <th>性別</th>
@@ -29,19 +29,19 @@
             </tr>
             <tr>
                 <th>メール</th>
-                <td>{{ $inputs['email'] }}</td>
+                <td>{{ $inputs['email'] ?? '' }}</td>
             </tr>
             <tr>
                 <th>電話番号</th>
-                <td>{{ $inputs['tel'] }}</td>
+                <td>{{ $inputs['tel']  ?? '' }}</td>
             </tr>
             <tr>
                 <th>住所</th>
-                <td>{{ $inputs['address'] }}</td>
+                <td>{{ $inputs['address']  ?? '' }}</td>
             </tr>
             <tr>
                 <th>建物名</th>
-                <td>{{ $inputs['building'] }}</td>
+                <td>{{ $inputs['building']  ?? '' }}</td>
             </tr>
             <tr>
                 <th>お問い合わせ種別</th>
@@ -49,7 +49,7 @@
             </tr>
             <tr>
                 <th>内容</th>
-                <td>{{ $inputs['detail'] }}</td>
+                <td>{{ $inputs['detail'] ?? ''  }}</td>
             </tr>
         </table>
 

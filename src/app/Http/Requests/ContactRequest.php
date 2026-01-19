@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class ContactRequest extends FormRequest
 {
     /**
@@ -50,8 +51,8 @@ class ContactRequest extends FormRequest
 
             // 電話番号
             'tel.required'       => '電話番号を入力してください',
-            'tel.numeric'        => '電話番号は 半角英数字で入力してください',
-            'tel.digits_between' => '電話番号は 5桁まで数字で入力してください',
+            'tel.regex'           => '電話番号は 半角英数字で入力してください',
+            'tel.max'            =>  '電話番号は 5桁まで数字で入力してください',
 
             // 住所
             'address.required'   => '住所を入力してください',

@@ -15,40 +15,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// TOP（とりあえず welcome）
-Route::get('/', function () {
-    return view('welcome');
-});
+// // TOP（とりあえず welcome）
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // 入力画面
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 
 // 確認画面
-Route::post('/contact/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 
 // 送信処理
-Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/store', [ContactController::class, 'store'])->name('contact.store');
 
 
 // サンクスページ
-Route::get('/contact/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
+Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
 
 Route::middleware('auth')->group(function () {
 
-    // 管理画面一覧・検索
+    // 管理画面一覧
     Route::get('/admin', [AdminController::class, 'index'])
         ->name('admin.index');
 
-    // 詳細（モーダル用）
-    Route::get('/admin/{contact}', [AdminController::class, 'show'])
-        ->name('admin.show');
+    // 検索
+    Route::get('/search', [AdminController::class, 'search'])
+        ->name('admin.search');
+
+    // 検索リセット
+    Route::get('/reset', [AdminController::class, 'reset'])
+        ->name('admin.reset');
 
     // 削除
-    Route::delete('/admin/{contact}', [AdminController::class, 'destroy'])
-        ->name('admin.destroy');
+    Route::delete('/delete', [AdminController::class, 'destroy'])
+        ->name('admin.delete');
 
-    // ログアウト（Fortify）
+    // エクスポート
+    Route::get('/export', [AdminController::class, 'export'])
+        ->name('admin.export');
+
+    // ログアウト
     Route::post('/logout', function () {
         auth()->logout();
         return redirect('/login');

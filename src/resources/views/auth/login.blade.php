@@ -17,23 +17,21 @@
         <div>
             <label>メール</label><br>
             <input type="email" name="email">
+            @error('email')
+            <div style="color:red;">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
             <label>パスワード</label><br>
             <input type="password" name="password">
+            @error('password')
+            <div style="color:red;">{{ $message }}</div>
+            @enderror
         </div>
 
         <button type="submit">ログイン</button>
     </form>
-    
-    @if ($errors->any())
-    <ul style="color:red;">
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-    @endif
 
 
 </body>

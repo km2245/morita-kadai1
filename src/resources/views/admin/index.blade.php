@@ -8,9 +8,10 @@
 
 <body>
 
-    <h1>管理画面</h1>
 
-    <form method="get">
+    <h1>管理画面</h1>
+    <form method="GET" action="{{ route('admin.search') }}">
+
         <input type="text" name="keyword" placeholder="名前 or メール">
         <select name="gender">
             <option value="">性別</option>
@@ -20,6 +21,15 @@
         </select>
         <button>検索</button>
     </form>
+
+
+
+    <div class="logout">
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit">ログアウト</button>
+        </form>
+    </div>
 
     <table border="1">
         <tr>
@@ -37,15 +47,29 @@
             <td>{{ $contact->email }}</td>
             <td>{{ $contact->category->content }}</td>
             <td>
-                <a href="{{ route('admin.show', $contact->id) }}">詳細</a>
+                <button
+                    type="button"
+                    class="detail-btn"
+                    data-id="{{ $contact->id }}">
+                    詳細
+                </button>
             </td>
+            <div id="modal" style="display:none;">
+                <div id="modal-content">
+                    <!-- JSで中身入れる -->
+                </div>
+                <button id="close">閉じる</button>
+            </div>
+
         </tr>
         @endforeach
     </table>
-    
+
     <div>
         {{ $contacts->links('vendor.pagination.default') }}
     </div>
+    <a href="{{ route('admin.reset') }}">リセット</a>
+
 
 </body>
 

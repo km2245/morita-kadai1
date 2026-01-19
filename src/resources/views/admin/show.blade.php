@@ -26,6 +26,8 @@
         @method('DELETE')
         <button>削除</button>
     </form>
+   
+
 
 </body>
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\ContactRequest;
 use App\Models\Contact;
 use App\Models\Category;
 
@@ -17,17 +17,18 @@ class ContactController extends Controller
     }
 
     // 確認画面
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
-        $inputs = $request->all();
+        $inputs = $request->validated();
         $category = Category::find($inputs['category_id']);
 
         return view('contact.confirm', compact('inputs', 'category'));
     }
 
 
+
     // 保存処理
-    public function store(Request $request)
+    public function store(ContactRequest $request)
     {
         // 修正ボタンが押された場合
         if ($request->has('back')) {
