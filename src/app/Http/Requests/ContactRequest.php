@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Validator;
 
 
 class ContactRequest extends FormRequest
@@ -15,17 +16,45 @@ class ContactRequest extends FormRequest
         return true;
     }
 
+
+
+    protected function withValidator(Validator $validator)
+    {
+        $validator->after(function ($validator) {
+
+            $last  = $this->last_name;
+            $first = $this->first_name;
+
+            // 両方空
+            if (empty($last) && empty($first)) {
+                $validator->errors()->add('name', '名前を入力してください');
+                return;
+            }
+
+            // 姓だけ空
+            if (empty($last)) {
+                $validator->errors()->add('last_name', '姓を入力してください');
+            }
+
+            // 名だけ空
+            if (empty($first)) {
+                $validator->errors()->add('first_name', '名を入力してください');
+            }
+        });
+    }
     /**
      * バリデーションルール
      */
     public function rules(): array
     {
         return [
-            'last_name'   => ['required', 'string', 'max:8'],
-            'first_name'  => ['required', 'string', 'max:8'],
+            'last_name'   => ['nullable', 'string', 'max:8'],
+            'first_name'  => ['nullable', 'string', 'max:8'],
             'gender'      => ['required'],
             'email'       => ['required', 'email'],
-            'tel'         => ['required', 'numeric', 'digits_between:1,5'],
+            'tel1'        => ['required', 'regex:/^[0-9]+$/', 'max:5'],
+            'tel2'        => ['nullable'],
+            'tel3'        => ['nullable'],
             'address'     => ['required'],
             'category_id' => ['required'],
             'detail'      => ['required', 'max:120'],
@@ -38,9 +67,6 @@ class ContactRequest extends FormRequest
     public function messages(): array
     {
         return [
-            // お名前
-            'last_name.required'  => '姓を入力してください',
-            'first_name.required' => '名を入力してください',
 
             // 性別
             'gender.required'     => '性別を選択してください',
@@ -50,9 +76,9 @@ class ContactRequest extends FormRequest
             'email.email'        => 'メールアドレスはメール形式で入力してください',
 
             // 電話番号
-            'tel.required'       => '電話番号を入力してください',
-            'tel.regex'           => '電話番号は 半角英数字で入力してください',
-            'tel.max'            =>  '電話番号は 5桁まで数字で入力してください',
+            'tel1.required' => '電話番号を入力してください',
+            'tel1.regex'    => '電話番号は 半角英数字で入力してください',
+            'tel1.max'      => '電話番号は 5桁まで数字で入力してください',
 
             // 住所
             'address.required'   => '住所を入力してください',

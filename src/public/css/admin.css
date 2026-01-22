@@ -1,0 +1,410 @@
+body {
+    margin: 0;
+    font-family: 'Times New Roman', serif;
+    background: #fff;
+    color: var(--text-color);
+}
+
+
+
+
+.admin-header {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+
+.logout-btn {
+    background: #f3f3f3;
+    border: 1px solid #d6cfc7;
+    color: var(--main-color);
+    padding: 6px 14px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    opacity: 0.8;
+}
+
+.logout {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* ===== 検索フォーム ===== */
+.admin-search {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.admin-search input,
+.admin-search select {
+    padding: 8px 10px;
+    background: #f5f5f5;
+    border: none;
+    font-size: 14px;
+}
+
+.search-btn {
+    background: #7a5c3e;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.reset-btn {
+    padding: 8px 16px;
+    border: 1px solid #7a5c3e;
+    color: #7a5c3e;
+    text-decoration: none;
+}
+
+.admin-container h1 {
+    color: var(--main-color);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* 検索フォーム */
+.search-area {
+    max-width: 100%;
+    display: flex;
+    gap: 25px;
+    margin-bottom: 40px;
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-area input,
+.search-area select {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 13px;
+    background: #f3f3f3;
+    border: 1px solid #e6d8c8;
+    border-radius: 2px;
+}
+
+.search-area input[type="text"] {
+    width: 260px;
+}
+
+.search-area select {
+    width: 140px;
+}
+.search-area input[type="date"] {
+    width: 160px;
+}
+
+.search-area button {
+    height: 36px;
+    padding: 0 20px;
+    font-size: 13px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.search-area a {
+    font-size: 13px;
+    color: var(--main-color);
+    text-decoration: none;
+    padding: 6px 8px;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e6d8c8;
+}
+
+td {
+    vertical-align: middle;
+}
+
+th {
+    background: var(--main-color);
+    color: #fff;
+}
+
+th,
+td {
+    border: none;
+    border-bottom: 1px solid #e6d8c8;
+    padding: 12px;
+    text-align: center;
+        vertical-align: middle;
+}
+
+.admin-container {
+    max-width: 1200px;
+    margin: 40px auto 80px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* エクスポート＋ページネーション横並び */
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+/* ===== ページネーション ===== */
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.pagination li {
+    list-style: none;
+}
+
+.pagination li a,
+.pagination li span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 26px;
+    height: 26px;
+    padding: 0;
+
+    border: 1px solid #d6cfc7;
+    color: var(--main-color);
+    font-size: 12px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* アクティブ */
+.pagination .active span {
+    background: var(--main-color);
+    color: #fff;
+    border-color: var(--main-color);
+}
+
+/* 無効 */
+.pagination .disabled span {
+    color: #ccc;
+    border-color: #eee;
+}
+
+/* リセットボタン */
+.reset-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 34px;
+    padding: 0 18px;
+
+    background: #d6cfc7;
+    color: #fff !important;
+    font-size: 13px;
+    line-height: 34px;
+
+    text-decoration: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    border: none;
+
+}
+
+/* ホバー */
+.reset-btn:hover {
+    opacity: 0.85;
+}
+
+.export-btn {
+    height: 36px;
+    padding: 0 18px;
+    background: #d6cfc7;
+    color: #7a5c3e;
+    font-size: 13px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 2px;
+}
+
+.export-btn:hover {
+    opacity: 0.85;
+}
+
+/* 詳細ボタン */
+.detail-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--sub-color);
+    background: #fff;
+    cursor: pointer;
+}
+/* モーダル背景 */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+/* カード */
+.modal-card {
+    background: #fff;
+    width: 600px;
+    max-width: 90%;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+    border: 1px solid #c9b7a2;
+}
+/* タイトル */
+.modal-title {
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* ===== ×ボタン ===== */
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    border: 1px solid #c9b7a2;
+    background: #fff;
+    color: #7a5c3e;
+
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close:hover {
+    background: #f5f0ea;
+}
+
+/* ===== モーダル中身 ===== */
+.modal-inner {
+    font-size: 14px;
+    color: #7a5c3e;
+}
+
+.modal-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 20px;
+    padding: 12px 0;
+}
+
+.modal-label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.modal-value {
+    line-height: 1.6;
+}
+
+/* 削除ボタン */
+.modal-delete {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.modal-delete button {
+    background: #c94a3a;
+    color: #fff;
+    border: none;
+    padding: 8px 28px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.modal-delete button:hover {
+    opacity: 0.85;
+}
+
+/* ===== テーブル ===== */
+.modal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.modal-table th {
+    width: 30%;
+    text-align: left;
+    padding: 10px;
+    background: #f5f0ea;
+    color: #7a5c3e;
+    vertical-align: top;
+}
+
+.modal-table td {
+    padding: 10px;
+    border-bottom: 1px solid #e6d8c8;
+}
+
+/* ===== フッター ===== */
+.modal-footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.modal-btn {
+    background: #7a5c3e;
+    color: #fff;
+    border: none;
+    padding: 8px 24px;
+    font-size: 14px;
+    cursor: pointer;
+}
+#close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: none;
+    font-size: 20px;
+}
+

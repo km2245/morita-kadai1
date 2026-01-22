@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// // TOP（とりあえず welcome）
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 
 // 入力画面
 Route::get('/', [ContactController::class, 'index'])->name('contact.index');
@@ -28,6 +25,10 @@ Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.co
 
 // 送信処理
 Route::post('/store', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/', [ContactController::class, 'index'])->name('contact.index');
+
+
 
 
 // サンクスページ
@@ -48,9 +49,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/reset', [AdminController::class, 'reset'])
         ->name('admin.reset');
 
+    // show用
+    Route::get('/admin/{contact}', [AdminController::class, 'show'])
+        ->name('admin.show');
+
     // 削除
     Route::delete('/delete', [AdminController::class, 'destroy'])
         ->name('admin.delete');
+
 
     // エクスポート
     Route::get('/export', [AdminController::class, 'export'])

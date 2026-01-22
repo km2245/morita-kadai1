@@ -35,13 +35,15 @@ class ContactController extends Controller
             return redirect()->route('contact.index')->withInput();
         }
 
+        $tel = $request->tel1 . '-' . $request->tel2 . '-' . $request->tel3;
+
         // contacts テーブルに保存
         Contact::create([
             'last_name'   => $request->last_name,
             'first_name'  => $request->first_name,
             'gender'      => $request->gender,
             'email'       => $request->email,
-            'tel'         => $request->tel,
+            'tel'         => $tel,
             'address'     => $request->address,
             'building'    => $request->building,
             'category_id' => $request->category_id,

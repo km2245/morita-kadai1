@@ -1,0 +1,113 @@
+/* ===== 確認画面 ===== */
+
+body {
+    background: #fff;
+    /* ← 全体白 */
+    color: var(--main-color);
+    /* ← 茶色文字 */
+    font-family: 'Times New Roman', serif;
+}
+
+/* タイトル */
+h1 {
+    text-align: center;
+    margin: 60px 0 40px;
+    color: var(--main-color);
+    letter-spacing: 2px;
+}
+
+/* フォーム全体 */
+form {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    background: #fff;
+    padding: 60px;
+}
+
+/* テーブル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 15px;
+}
+
+/* 左側（項目名） */
+th {
+    width: 30%;
+    background: #f7f5f3;
+    text-align: left;
+    padding: 20px;
+    font-weight: normal;
+    color: var(--main-color);
+    border: 1px solid #ddd;
+}
+
+/* 右側（内容） */
+td {
+    width: 70%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    line-height: 1.6;
+}
+
+/* ボタンエリア */
+button {
+    display: inline-block;
+    min-width: 90px;
+    padding: 9px 24px;
+    margin: 0 40px;
+    border: none;
+    background: var(--main-color);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+/* 修正ボタンだけ色変える */
+.edit-btn {
+    background: none;
+    border: none;
+    padding: 0;
+
+    color: #8b7969;
+    font-size: 14px;
+    text-decoration: underline;
+
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    color: #5c4a3f;
+}
+
+
+/* ボタン中央寄せ */
+form>button {
+    margin-top: 20px;
+}
+
+.confirm-form {
+    text-align: center;
+    /* ボタンだけ中央にしたい */
+}
+
+.confirm-form table {
+    text-align: left;
+    /* ← 表の中身は左寄せ */
+}
+
+.confirm-form .category-row th {
+    background: var(--main-color);
+    /* あの茶色 */
+    color: #fff;
+}
+
+
+:root {
+    --bg-color: #f5f0ea;
+    /* ← 見本っぽい色 */
+    --main-color: #8b7969;
+    --text-color: #333;
+}

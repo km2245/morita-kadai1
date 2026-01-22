@@ -6,30 +6,45 @@
 
 1,Docker コンテナを起動
 bash
-  - docker-compose build
-  - docker-compose up -d
+  docker-compose build
+  docker-compose up -d
 
 2,php コンテナ内で Laravel の初期設定を行う
- - .env の作成
-- アプリケーションキーを生成
+  .env の作成
+  アプリケーションキーを生成
 bash
-  - docker-compose exec php bash
-  - cp .env.example .env
-  - php artisan key:generate
+    docker-compose exec php bash
+    cp .env.example .env
+    php artisan key:generate
 
 3,データベースの接続設定を行う
 bash
-  - DB_CONNECTION=mysql - DB_HOST=mysql
-  - DB_PORT=3306 - DB_DATABASE=laravel_db
-  - DB_USERNAME=laravel_user
-  - DB_PASSWORD=laravel_pass
+    DB_CONNECTION=mysql - DB_HOST=mysql
+    DB_PORT=3306 - DB_DATABASE=laravel_db
+    DB_USERNAME=laravel_user
+    DB_PASSWORD=laravel_pass
 
 4,マイグレーションを実行
-bash - php artisan migrate
+bash
+    php artisan migrate
 
 5,シーディングを実行
-bash - php artisan db:seed
+bash
+    php artisan db:seed
+
+## 使用技術
+PHP：8.1.34
+Laravel：8.83.8
+mysql：8.0.26
+nginx：1.21.1
+
 
 ## ER 図
 
 ![ER図](ER.drawio.png)
+
+
+## URL
+お問い合わせ入力画面：http://localhost/
+お問い合わせ管理画面：http://localhost/admin
+ユーザー登録画面：http://localhost/register

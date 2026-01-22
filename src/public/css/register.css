@@ -1,0 +1,116 @@
+/* ===== Register Layout ===== */
+
+
+.admin-header {
+    background: #fff;
+    padding: 30px 0;
+    position: relative;
+}
+
+.site-title {
+    text-align: center;
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 2px;
+}
+
+.site-line {
+    height: 1px;
+    background: #d6cfc7;
+}
+
+
+
+/* 上の白いエリア */
+.register-header {
+    background: #fff;
+    padding: 7px 0 5px;
+    /* ← 上下の白 */
+}
+
+/* 下の薄茶背景 */
+.register-main {
+    background: var(--bg-color);
+    padding: 60px 0;
+}
+
+/* 登録ボタン */
+.register-btn {
+    display: block;
+    margin: 30px auto 0;
+    padding: 10px 32px;
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+}
+
+.register-btn:hover {
+    opacity: 0.85;
+}
+
+
+.register-box .form-row {
+    display: block;
+    /* ← 横並びを解除 */
+    margin-bottom: 30px;
+}
+
+
+/* ===== Register ===== */
+
+/* ボックスサイズ */
+.register-box {
+    max-width: 450px;
+    padding: 35px;
+    margin: 15px auto;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Times New Roman', serif;
+}
+
+/* 各入力ブロック */
+.register-box>div {
+    margin-bottom: 20px;
+    /* ← 縦を詰める */
+}
+
+/* ラベル */
+.register-box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--main-color);
+}
+
+/* 入力欄 */
+.register-box input {
+    height: 40px;
+    padding: 8px 12px;
+}
+
+/* エラーメッセージ */
+.register-box .error,
+.register-box div>div {
+    margin-top: 4px;
+    font-size: 12px;
+}
+/* 全体文字色を茶系に */
+.register-main {
+    color: var(--main-color);
+}
+
+/* ===== ログイン画面だけ ===== */
+.login-form {
+    max-width: 420px;
+    padding: 40px 40px;
+    margin: 0 auto;
+}

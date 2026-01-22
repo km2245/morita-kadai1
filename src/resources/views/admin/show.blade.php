@@ -1,34 +1,53 @@
-<!DOCTYPE html>
-<html lang="ja">
+<div class="modal-inner">
+    <div class="modal-row">
+        <div class="modal-label">お名前</div>
+        <div class="modal-value">{{ $contact->last_name }}　{{ $contact->first_name }}</div>
+    </div>
 
-<head>
-    <meta charset="UTF-8">
-    <title>詳細</title>
-</head>
+    <div class="modal-row">
+        <div class="modal-label">性別</div>
+        <div class="modal-value">
+            @if ($contact->gender == 1) 男性
+            @elseif ($contact->gender == 2) 女性
+            @else その他
+            @endif
+        </div>
+    </div>
 
-<body>
+    <div class="modal-row">
+        <div class="modal-label">メールアドレス</div>
+        <div class="modal-value">{{ $contact->email }}</div>
+    </div>
 
-    <h1>お問い合わせ詳細</h1>
+    <div class="modal-row">
+        <div class="modal-label">電話番号</div>
+        <div class="modal-value">{{ $contact->tel }}</div>
+    </div>
 
-    <ul>
-        <li>名前：{{ $contact->last_name }} {{ $contact->first_name }}</li>
-        <li>性別：{{ $contact->gender }}</li>
-        <li>メール：{{ $contact->email }}</li>
-        <li>電話：{{ $contact->tel }}</li>
-        <li>住所：{{ $contact->address }}</li>
-        <li>建物：{{ $contact->building }}</li>
-        <li>種別：{{ $contact->category->content }}</li>
-        <li>内容：{{ $contact->detail }}</li>
-    </ul>
+    <div class="modal-row">
+        <div class="modal-label">住所</div>
+        <div class="modal-value">{{ $contact->address }}</div>
+    </div>
 
-    <form action="{{ route('admin.destroy', $contact->id) }}" method="post">
+    <div class="modal-row">
+        <div class="modal-label">建物名</div>
+        <div class="modal-value">{{ $contact->building }}</div>
+    </div>
+
+    <div class="modal-row">
+        <div class="modal-label">お問い合わせの種類</div>
+        <div class="modal-value">{{ $contact->category->content }}</div>
+    </div>
+
+    <div class="modal-row">
+        <div class="modal-label">お問い合わせ内容</div>
+        <div class="modal-value">{{ $contact->detail }}</div>
+    </div>
+
+    <form action="{{ route('admin.delete') }}" method="post" class="modal-delete">
         @csrf
         @method('DELETE')
-        <button>削除</button>
+        <input type="hidden" name="id" value="{{ $contact->id }}">
+        <button type="submit">削除</button>
     </form>
-   
-
-
-</body>
-
-</html>
+</div>
